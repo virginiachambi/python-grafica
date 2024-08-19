@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficador de Ecuaciones Lineales</title>
+</head>
+<body>
+    <h1>Graficador de Ecuaciones Lineales</h1>
+    <form method="POST">
+        <label for="m">Pendiente (m):</label>
+        <input type="number" id="m" name="m" step="any" required>
+        <br><br>
+        <label for="b">Intersección (b):</label>
+        <input type="number" id="b" name="b" step="any" required>
+        <br><br>
+        <button type="submit">Graficar</button>
+    </form>
+
+    {% if plot_file %}
+        <h2>Gráfica de la Ecuación:</h2>
+        <img src="{{ url_for('send_plot', filename='plot.png') }}" alt="Gráfica de la Ecuación">
+    {% endif %}
+</body>
+</html>
